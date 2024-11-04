@@ -1,0 +1,52 @@
+/* Set a background color for the entire page */
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Style for the title */
+h1 {
+    color: #333;
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Container for graph boxes */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Individual graph box */
+.graph-box {
+    background-color: #1A6EAD;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    height: 300px; /* Adjust this height as needed for graph size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Text inside graph boxes */
+.graph-box p {
+    color: #000;
+    font-size: 1em;
+    text-align: center;
+}
