@@ -44,19 +44,35 @@ function createRealTimeGraphs() {
         },
         options: {
             responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: 'black',
+                    }
+                }
+            },
             scales: {
                 x: {
                     display: true,
                     title: {
                         display: true,
-                        text: 'Time'
+                        text: 'Time',
+                        color: 'black'
+                    },
+                    ticks: {
+                        color: 'black',
                     }
                 },
                 y: {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Voltage'
+                        text: 'Voltage',
+                        color: 'black'
+                    },
+                    ticks: {
+                        color: 'black', // X-axis labels color
                     }
                 }
             }
