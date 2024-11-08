@@ -12,9 +12,9 @@ function createRealTimeGraphs() {
     const dcVoltages = [];
     const acVoltages = [];
 
-    // Initialize the graph
-    const ctx = document.getElementById('graph1').getContext('2d');
-    const voltageChart = new Chart(ctx, {
+    // Initialize graph 1
+    const ctxAnalog = document.getElementById('graph1').getContext('2d');
+    const voltageChart = new Chart(ctxAnalog, {
         type: 'line',
         data: {
             labels: labels,
@@ -25,18 +25,110 @@ function createRealTimeGraphs() {
                     borderColor: 'rgb(75, 192, 192)',
                     borderWidth: 2,
                     fill: false,
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: 'black',
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Time',
+                        color: 'black'
+                    },
+                    ticks: {
+                        color: 'black',
+                    }
                 },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Voltage',
+                        color: 'black'
+                    },
+                    ticks: {
+                        color: 'black', // X-axis labels color
+                    }
+                }
+            }
+        }
+    });
+
+    // Initialize graph 1
+    const ctxDC = document.getElementById('graph2').getContext('2d');
+    const dcChart = new Chart(ctxDC, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
                 {
-                    label: 'DC Voltage',
+                    label: 'DC Value',
                     data: dcVoltages,
-                    borderColor: 'rgb(153, 102, 255)',
+                    borderColor: 'rgb(255, 165, 0)',
                     borderWidth: 2,
                     fill: false,
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: 'black',
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Time',
+                        color: 'black'
+                    },
+                    ticks: {
+                        color: 'black',
+                    }
                 },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Voltage',
+                        color: 'black'
+                    },
+                    ticks: {
+                        color: 'black', // X-axis labels color
+                    }
+                }
+            }
+        }
+    });
+
+    // Initialize graph 1
+    const ctxAC = document.getElementById('graph3').getContext('2d');
+    const acChart = new Chart(ctxAC, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
                 {
-                    label: 'AC Voltage',
+                    label: 'AC Value',
                     data: acVoltages,
-                    borderColor: 'rgb(255, 159, 64)',
+                    borderColor: 'rgb(255, 0, 0)',
                     borderWidth: 2,
                     fill: false,
                 }
@@ -101,6 +193,8 @@ function createRealTimeGraphs() {
 
             // Update the chart
             voltageChart.update();
+            dcChart.update();
+            acChart.update();
         } catch (error) {
             console.error("Error updating graph:", error);
         }
