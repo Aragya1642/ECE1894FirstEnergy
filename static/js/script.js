@@ -12,7 +12,7 @@ function createRealTimeGraphs() {
     const dcVoltages = [];
     const acVoltages = [];
 
-    // Initialize graph 1
+    // Initialize Analog Graph
     const ctxAnalog = document.getElementById('graph1').getContext('2d');
     const voltageChart = new Chart(ctxAnalog, {
         type: 'line',
@@ -33,8 +33,9 @@ function createRealTimeGraphs() {
             plugins: {
                 legend: {
                     display: true,
+                    position: 'bottom',
                     labels: {
-                        color: 'black',
+                        color: 'white',
                     }
                 }
             },
@@ -44,10 +45,10 @@ function createRealTimeGraphs() {
                     title: {
                         display: true,
                         text: 'Time',
-                        color: 'black'
+                        color: 'white'
                     },
                     ticks: {
-                        color: 'black',
+                        color: 'white',
                     }
                 },
                 y: {
@@ -55,17 +56,17 @@ function createRealTimeGraphs() {
                     title: {
                         display: true,
                         text: 'Voltage',
-                        color: 'black'
+                        color: 'white'
                     },
                     ticks: {
-                        color: 'black', // X-axis labels color
+                        color: 'white', // X-axis labels color
                     }
                 }
             }
         }
     });
 
-    // Initialize graph 1
+    // Initialize DC graph
     const ctxDC = document.getElementById('graph2').getContext('2d');
     const dcChart = new Chart(ctxDC, {
         type: 'line',
@@ -86,8 +87,9 @@ function createRealTimeGraphs() {
             plugins: {
                 legend: {
                     display: true,
+                    position: 'bottom',
                     labels: {
-                        color: 'black',
+                        color: 'white',
                     }
                 }
             },
@@ -97,10 +99,10 @@ function createRealTimeGraphs() {
                     title: {
                         display: true,
                         text: 'Time',
-                        color: 'black'
+                        color: 'white'
                     },
                     ticks: {
-                        color: 'black',
+                        color: 'white',
                     }
                 },
                 y: {
@@ -108,17 +110,17 @@ function createRealTimeGraphs() {
                     title: {
                         display: true,
                         text: 'Voltage',
-                        color: 'black'
+                        color: 'white'
                     },
                     ticks: {
-                        color: 'black', // X-axis labels color
+                        color: 'white', // X-axis labels color
                     }
                 }
             }
         }
     });
 
-    // Initialize graph 1
+    // Initialize AC graph
     const ctxAC = document.getElementById('graph3').getContext('2d');
     const acChart = new Chart(ctxAC, {
         type: 'line',
@@ -139,8 +141,9 @@ function createRealTimeGraphs() {
             plugins: {
                 legend: {
                     display: true,
+                    position: 'bottom',
                     labels: {
-                        color: 'black',
+                        color: 'white',
                     }
                 }
             },
@@ -150,10 +153,10 @@ function createRealTimeGraphs() {
                     title: {
                         display: true,
                         text: 'Time',
-                        color: 'black'
+                        color: 'white'
                     },
                     ticks: {
-                        color: 'black',
+                        color: 'white',
                     }
                 },
                 y: {
@@ -161,10 +164,10 @@ function createRealTimeGraphs() {
                     title: {
                         display: true,
                         text: 'Voltage',
-                        color: 'black'
+                        color: 'white'
                     },
                     ticks: {
-                        color: 'black', // X-axis labels color
+                        color: 'white', // X-axis labels color
                     }
                 }
             }
