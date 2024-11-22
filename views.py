@@ -19,8 +19,13 @@ def get_data():
         "ac_voltage": ac_voltage
     })
 
-# @views.route("/api/history")
-# def get_history():
-#     # Fetch historical data (list of dictionaries)
-#     history = writeRead.readHistory()
-#     return jsonify(history)
+@views.route("/api/history")
+def get_history():
+    # Fetch historical data
+    analog_value, dc_voltage, ac_voltage = writeRead.readHistory()
+    history = [
+        {"analog_value": analog_value},
+        {"dc_voltage": dc_voltage},
+        {"ac_voltage": ac_voltage}
+    ]
+    return jsonify(history)

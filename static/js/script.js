@@ -5,6 +5,12 @@ async function fetchData() {
     return data;
 }
 
+async function getHistory() {
+    const response = await fetch('/api/history');
+    const data = await response.json();
+    return data;
+}
+
 // Function to initialize and update the graphs
 function createRealTimeGraphs() {
     const labels = []; // Time labels for the X-axis
@@ -174,6 +180,9 @@ function createRealTimeGraphs() {
         }
     });
 
+    // Get the history
+    const history = getHistory();
+
     // Function to update the graph with new data
     async function updateGraph() {
         try {
@@ -187,12 +196,12 @@ function createRealTimeGraphs() {
             acVoltages.push(data.ac_voltage);
 
             // Limit the graph to the last 10 data points
-            if (labels.length > 10) {
-                labels.shift();
-                analogValues.shift();
-                dcVoltages.shift();
-                acVoltages.shift();
-            }
+            // if (labels.length > 10) {
+            //     labels.shift();
+            //     analogValues.shift();
+            //     dcVoltages.shift();
+            //     acVoltages.shift();
+            // }
 
             // Update the chart
             voltageChart.update();
