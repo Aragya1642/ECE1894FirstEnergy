@@ -17,7 +17,7 @@ scope = ["https://spreadsheets.google.com/feeds",
          ]
 
 # Add your service account key file path
-creds = ServiceAccountCredentials.from_json_keyfile_name("firstenergy-440004-e93a3721f178.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name("firstenergy-440004-48dd166dea73.json", scope)
 
 # Authorize the client
 client = gspread.authorize(creds)
@@ -62,6 +62,9 @@ def readData():
     analog_value = int(numbers[0])  # First value is an integer
     dc_voltage = float(numbers[1])  # Second value is a float
     ac_voltage = float(numbers[2])  # Third value is a float
+    analog_value = 0
+    dc_voltage = 0
+    ac_voltage = 0
     return analog_value, dc_voltage, ac_voltage
 
 def readHistory():

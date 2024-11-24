@@ -181,7 +181,7 @@ function createRealTimeGraphs() {
     });
 
     // Get the history
-    const history = getHistory();
+    // const history = getHistory();
 
     // Function to update the graph with new data
     async function updateGraph() {
