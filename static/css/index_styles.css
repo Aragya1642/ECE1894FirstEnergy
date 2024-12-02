@@ -1,26 +1,26 @@
-/* Set a background color for the entire page */
+/* Full Page Settings */
 body {
-    background-color: #ffffff;
-    font-family: Arial, sans-serif;
+    background-color: #000000; /* White also looks good as a background */
+    font-family: monospace;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vw
 }
 
-/* Style for the title */
+/* Title */
 h1 {
-    color: #333;
-    font-size: 2.5em;
+    color: #FFFFFF;
+    font-size: 3em;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-/* Container for graph boxes */
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -29,9 +29,9 @@ h1 {
     padding: 20px;
     max-width: 2000px;
     width: 100%;
+    overflow: scroll;
 }
 
-/* Individual graph box */
 .graph-box {
     background-color: #1A6EAD;
     border-radius: 8px;
@@ -43,18 +43,4 @@ h1 {
     flex-direction: column; /* Stack label and graph vertically */
     align-items: center;
     justify-content: center;
-}
-
-/* Text inside graph boxes */
-.graph-box p {
-    color: #000;
-    font-size: 1em;
-    text-align: center;
-}
-
-.graph-label {
-    color: #ffffff; /* White text color for visibility */
-    font-size: 1.2em;
-    margin-bottom: 10px; /* Space between label and graph */
-    text-align: center;
 }
