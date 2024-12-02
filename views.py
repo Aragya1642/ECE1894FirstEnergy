@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, request
 from services import writeRead
 
 views = Blueprint(__name__, "views")
@@ -18,6 +18,15 @@ def get_data():
         "dc_voltage": dc_voltage,
         "ac_voltage": ac_voltage
     })
+
+@views.route("/api/sendData", methods=['POST'])
+def write_data():
+    # Parse incoming data
+    data = request.get_json()
+    time = data['time']
+    ac_voltage = data['acVoltage']
+
+    return writeRead.writeData(time, ac_voltage)
 
 @views.route("/api/history")
 def get_history():

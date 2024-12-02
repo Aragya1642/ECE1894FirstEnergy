@@ -11,39 +11,23 @@
     <h1>VoltVitals Real-Time Data Visualization</h1>
     <div class="container">
         <div class="graph-box">
-            <h3 class="graph-label">AC Voltage</h3>
+            <h2 class="graph-label">AC Voltage</h2>
             <canvas id="graph1"></canvas>
         </div>
         <div class="graph-box">
-            <h3 class="graph-label">System Status</h3>
-            <canvas id="graph2"></canvas>
+            <h2 class="graph-label">System Status/Voltage Status</h2>
+            <div id="system-status">
+                <p id="status-text">System Status: Unknown</p>
+                <p id="voltage">AC Voltage: N/A</p>
+                <!-- Add more system status details here -->
+            </div>
         </div>
         <div class="graph-box">
-            <h3 class="graph-label">Blah</h3>
-            <canvas id="graph3"></canvas>
-        </div>
-        <div class="graph-box">
-            <h3 class="graph-label">AC Voltage</h3>
-            <canvas id="graph1"></canvas>
-        </div>
-        <div class="graph-box">
-            <h3 class="graph-label">System Status</h3>
-            <canvas id="graph2"></canvas>
-        </div>
-        <div class="graph-box">
-            <h3 class="graph-label">Blah</h3>
-            <canvas id="graph3"></canvas>
-        </div>
-        <div class="graph-box">
-            <h3 class="graph-label">System Status</h3>
-            <canvas id="graph2"></canvas>
-        </div>
-        <div class="graph-box">
-            <h3 class="graph-label">Blah</h3>
-            <canvas id="graph3"></canvas>
+            <h2 class="graph-label">Historical Data</h2>
+            <p id="historical-faults">Number of Faults Today: Unknown</p>
         </div>
     </div>
 
-    <!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
