@@ -1,3 +1,5 @@
+var faults = 0;
+
 // Function to fetch data from Flask API
 async function fetchData() {
     const response = await fetch('/api/data');
@@ -49,6 +51,16 @@ function updateSystemStatus(acVoltage) {
         voltageText.innerHTML = `AC Voltage Status: Out of Range`; // Display the latest AC Voltage
         voltageText.style.backgroundColor = "red";  // Normal voltage
     }
+}
+
+function updateHistoricalStatus(acVoltage) {
+    const faultsText = document.getElementById("historical-faults");
+
+    if (acVoltage >= 126 || acVoltage <= 114){
+        faults += 1;
+    }
+
+    faultsText.innerHTML = `Number of Faults Today: ${faults} faults`
 }
 
 // Function to initialize and update the graphs
@@ -126,6 +138,9 @@ function createRealTimeGraphs() {
             
             // Update the System Status
             updateSystemStatus(data.ac_voltage);
+
+            // Update the Historical Data
+            updateHistoricalStatus(data.ac_voltage);
 
             // Write the data to google sheets
             await writeData(labels, acVoltages);
