@@ -26,12 +26,15 @@ client = gspread.authorize(creds)
 sheet = client.open("FirstEnergyData").sheet1
 
 def readData():
-    response = requests.get(esp32_ip)
-    numbers = re.findall(pattern, response.text)
-    analog_value = int(numbers[0])  # First value is an integer
-    dc_voltage = float(numbers[1])  # Second value is a float
-    ac_voltage = float(numbers[2])  # Third value is a float
-    return analog_value, dc_voltage, ac_voltage
+    try:
+        response = requests.get(esp32_ip)
+        numbers = re.findall(pattern, response.text)
+        analog_value = int(numbers[0])  # First value is an integer
+        dc_voltage = float(numbers[1])  # Second value is a float
+        ac_voltage = float(numbers[2])  # Third value is a float
+        return analog_value, dc_voltage, ac_voltage
+    except Exception as e:
+        return 0, 0, "error"
 
 def writeData(time, ac_voltage):
     try:

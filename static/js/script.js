@@ -130,6 +130,10 @@ function createRealTimeGraphs() {
         try {
             // Fetch the data from server (Arduino)
             const data = await fetchData();
+            
+            if (data.ac_voltage === "error") {
+                throw new Error("Server returned an error response");
+            }
 
             // Push new data points to arrays
             const timeLabel = new Date().toLocaleTimeString();
@@ -148,6 +152,13 @@ function createRealTimeGraphs() {
             // Update the chart
             acChart.update();
         } catch (error) {
+            // Get the system status block and update the content
+            const statusText = document.getElementById("status-text");
+            
+            // Update System Status
+            statusText.innerHTML = "System Status: System Down"; // Example of status
+            statusText.style.backgroundColor = "red";  // Normal voltage
+            
             console.error("Error updating graph:", error);
         }
     }
