@@ -7,34 +7,34 @@ async function fetchData() {
     return data;
 }
 
-async function writeData(labels, acVoltages) {
-    try {
-        // The data you want to send to Google Sheets
-        const payload = {
-            time: labels[labels.length - 1], // Most recent timestamp
-            acVoltage: acVoltages[acVoltages.length - 1] // Most recent AC voltage
-        };
+// async function writeData(labels, acVoltages) {
+//     try {
+//         // The data you want to send to Google Sheets
+//         const payload = {
+//             time: labels[labels.length - 1], // Most recent timestamp
+//             acVoltage: acVoltages[acVoltages.length - 1] // Most recent AC voltage
+//         };
 
-        // Send the data to your backend Flask API
-        const response = await fetch('/api/sendData', {
-            method: 'POST', // Use POST to send data
-            headers: {
-                'Content-Type': 'application/json', // Sending JSON data
-            },
-            body: JSON.stringify(payload), // Convert payload to JSON string
-        });
+//         // Send the data to your backend Flask API
+//         const response = await fetch('/api/sendData', {
+//             method: 'POST', // Use POST to send data
+//             headers: {
+//                 'Content-Type': 'application/json', // Sending JSON data
+//             },
+//             body: JSON.stringify(payload), // Convert payload to JSON string
+//         });
 
-        // Check if the response was successful
-        if (!response.ok) {
-            throw new Error(`Failed to write data: ${response.statusText}`);
-        }
+//         // Check if the response was successful
+//         if (!response.ok) {
+//             throw new Error(`Failed to write data: ${response.statusText}`);
+//         }
 
-        const result = await response.json(); // Assuming Flask returns a JSON response
-        console.log('Data successfully written to Google Sheets:', result);
-    } catch (error) {
-        console.error('Error in writeData:', error);
-    }
-}
+//         const result = await response.json(); // Assuming Flask returns a JSON response
+//         console.log('Data successfully written to Google Sheets:', result);
+//     } catch (error) {
+//         console.error('Error in writeData:', error);
+//     }
+// }
 
 function updateSystemStatus(acVoltage) {
     // Get the system status block and update the content
@@ -147,7 +147,7 @@ function createRealTimeGraphs() {
             updateHistoricalStatus(data.ac_voltage);
 
             // Write the data to google sheets
-            await writeData(labels, acVoltages);
+            // await writeData(labels, acVoltages);
 
             // Update the chart
             acChart.update();
